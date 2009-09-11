@@ -6,7 +6,5 @@ window.onkeydown = function(e) {
 		return;
 	}
 
-	console.log('posting '+n);
 	port.postMessage({n: n});
-	console.log(port);
 };
