@@ -1,0 +1,18 @@
+Install:
+--------
+1. Download /src dir to local disc
+2. Go to chrome://extensions/
+3. Click "Load unpacked extensions"
+4. Select the src dir you downloaded
+
+Usage:
+------
+1. Add bookmarks to your bookmark bar
+2. Press Meta + <1-9> to access bookmarks #1-9
+
+Problems? E-Mail felix@debuggable.com.
+
+Known Issues
+------------
+* Currently not available as a packed version, seems like this is broken for Chrome under OSX : /
+* Only tested on OSX 10.5 with Chrome 4.0.207.0, let me know if this works on Windows

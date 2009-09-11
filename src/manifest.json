@@ -1,0 +1,16 @@
+{
+	"name": "Bookmark Bar Shortcuts for Google Chrome",
+	"version": "1.0",
+	"description": "Allow to access bookmark bar bookmarks via Command + [0-9] like Safari has them.",
+	"background_page": "background.html",
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["main.js"]
+		}
+	],
+	"permissions": [
+		"tabs",
+		"bookmarks"
+	]
+}

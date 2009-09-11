@@ -1,0 +1,28 @@
+<script>
+var bookmarkBar;
+chrome.bookmarks.getTree(function(bookmarks) {
+	for (var i = 0; i < bookmarks[0].children.length; i++) {
+		if (bookmarks[0].children[i].title == 'Bookmarks bar') {
+			bookmarkBar = bookmarks[0].children[i];
+		}
+	}
+});
+
+chrome.extension.onConnect.addListener(function(port) {
+	if (port.name != 'bookmarkBarShortcutsChannel') {
+		return;
+	}
+
+	port.onMessage.addListener(function(msg) {
+		chrome.tabs.getSelected(null, function(tab) {
+			var i = (msg.n - 1);
+			if (!bookmarkBar || !bookmarkBar.children || !bookmarkBar.children[i]) {
+				return;
+			}
+
+			var bookmark = bookmarkBar.children[i];
+			chrome.tabs.update(tab.id, {url: bookmark.url});
+		});
+	});
+});
+</script>
